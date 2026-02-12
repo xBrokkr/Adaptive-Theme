@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Dark Mode Test</title>
+    <style>
+        :root {
+            --bg-body: #f8f9fa;
+            --text-main: #212529;
+            --primary: #0ca678;
+            /* Teal */
+            --accent: #f06595;
+            /* Pink */
+            --card-bg: #ffffff;
+            --border: #e9ecef;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        p {
+            color: #495057;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .badge-primary {
+            background-color: rgba(12, 166, 120, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-accent {
+            background-color: rgba(240, 101, 149, 0.1);
+            color: var(--accent);
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button.secondary {
+            background-color: var(--accent);
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .dark-mode-section {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .dark-mode-section p {
+            color: #adb5bd;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 16px 0;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Smart Dark Mode Test</h1>
+        <p>This page demonstrates various UI patterns to test the intelligent color inversion logic. The goal is to
+            obtain a comfortable dark theme without breaking the design hierarchy.</p>
+
+        <div class="grid">
+            <!-- Card 1: Standard Light -->
+            <div class="card">
+                <span class="badge badge-primary">Primary Content</span>
+                <h2>Clean UI Card</h2>
+                <p>This card uses a white background with dark gray text. It should invert to a dark gray background
+                    with light text.</p>
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1%20text%20%7B%20fill%3A%23999%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23eee%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22200%22%20y%3D%22218%22%3EStandard%20Image%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                    alt="Test Image">
+                <button>Primary Action</button>
+            </div>
+
+            <!-- Card 2: Colorful Accents -->
+            <div class="card">
+                <span class="badge badge-accent">Accent Content</span>
+                <h2>Brand Colors</h2>
+                <p>These elements have specific brand colors (Pink/Teal). The inversion logic should preserve the
+                    <strong>Hue</strong> while adjusting lightness.
+                </p>
+                <div style="display: flex; gap: 10px;">
+                    <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%;"></div>
+                    <div style="width: 40px; height: 40px; background: var(--accent); border-radius: 50%;"></div>
+                    <div style="width: 40px; height: 40px; background: #fab005; border-radius: 50%;"></div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="secondary">Accent Action</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Already Dark Section (For Light Mode Test) -->
+        <div class="dark-mode-section">
+            <h2>Natively Dark Section</h2>
+            <p>This area defaults to a dark background. <br>
+                <strong>In Dark Mode:</strong> It should remain dark.<br>
+                <strong>In Light Mode:</strong> It should invert to a light background with dark text.
+            </p>
+            <button style="background: white; color: black;">Contrast Button</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

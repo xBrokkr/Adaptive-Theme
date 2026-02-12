@@ -1,0 +1,5 @@
+/* Basic styles for elements injected by the extension if needed */
+.smart-dark-mode-overlay {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
