@@ -2,6 +2,10 @@
 
 **Adaptive Theme** is a smart browser extension designed to improve focus and readability by intelligently adapting website themes. Unlike simple color inverters, it analyzes the page content to preserve brand aesthetics while ensuring a comfortable viewing experience.
 
+
+https://github.com/user-attachments/assets/ed4f7b68-ec00-41bb-bae2-b04154c8a291
+
+
 ## Features
 
 - **Smart Dark Mode**: Automatically turns bright websites into a dark theme without breaking the design.
